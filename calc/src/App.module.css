@@ -1,0 +1,33 @@
+
+main {
+    margin-top: 50px;
+    margin-left: 39%;
+    width: 22%;
+}
+
+.panel {
+    width: 100%;
+    border: solid black 1px;
+    height: 50px;
+}
+
+.red {
+    background-color: rgb(235, 150, 150);
+    border-width: 1px;
+}
+button {
+    width: 25%;
+    height: 50px;
+}
+
+button:nth-of-type(1) {
+    width: 50%;
+}
+
+button:nth-last-of-type(2) {
+    width: 75%;
+}
+
+.red:hover {
+    background-color: rgb(236, 123, 123);;
+}
