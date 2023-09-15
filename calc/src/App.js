@@ -48,7 +48,6 @@ function App() {
           if (op == '=') {
             res = num;
           }
-
           if (text == '=') {
             changeNum(res);
             changePrev("0");
