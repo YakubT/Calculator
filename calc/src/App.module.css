@@ -9,6 +9,8 @@ main {
     width: 100%;
     border: solid black 1px;
     height: 50px;
+    direction: rtl;
+    font-size: 50px;
 }
 
 .red {
