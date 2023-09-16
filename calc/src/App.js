@@ -18,10 +18,15 @@ function App() {
         if (str.length === 1) {
           changeNum(0);
         } else {
-        changeNum(str.substring(0,str.length-1));
+          if (str.length>2 && str.charAt(str.length-2) == '.') {
+            changeNum(str.substring(0,str.length-2));
+          }  else {
+            changeNum(str.substring(0,str.length-1));
+          }
+        
         }
       } else {
-        if (Number.isInteger(parseInt(text))) {
+        if (Number.isInteger(parseInt(text)) || text == '.') {
           if (num == '0') {
             changeNum(text);
           } else {
@@ -85,6 +90,7 @@ function App() {
         <button>3</button>
         <button class={styles.red}>+</button>
         <button>0</button>
+        <button>.</button>
         <button class={styles.red}>=</button>
       </div>
     </main>
