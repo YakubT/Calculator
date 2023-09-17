@@ -27,7 +27,7 @@ function App() {
 
         }
       } else {
-        if (Number.isInteger(parseInt(text)) || text == '.') {
+        if (Number.isInteger(parseInt(text)) || (text == '.')) {
           if (num == '0' || op == '=') {
             if (text == '.') {
               changeNum(num + text);
@@ -38,7 +38,9 @@ function App() {
               changeOp("==");
             }
           } else {
+            if (!(text == '.' && num.includes('.'))) {
             changeNum(num + text);
+            }
           }
         } else {
           let res;
