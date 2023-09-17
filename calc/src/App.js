@@ -1,6 +1,6 @@
 import './App.module.css';
 import styles from './App.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
   const [num, changeNum] = useState("0");
@@ -18,36 +18,36 @@ function App() {
         if (str.length === 1) {
           changeNum(0);
         } else {
-          if (str.length>2 && str.charAt(str.length-2) == '.') {
-            changeNum(str.substring(0,str.length-2));
-          }  else {
-            changeNum(str.substring(0,str.length-1));
+          if (str.length > 2 && str.charAt(str.length - 2) == '.') {
+            changeNum(str.substring(0, str.length - 2));
+          } else {
+            changeNum(str.substring(0, str.length - 1));
           }
-        
+
         }
       } else {
         if (Number.isInteger(parseInt(text)) || text == '.') {
-          if (num == '0') {
+          if (num == '0' || op == '=') {
             changeNum(text);
           } else {
-           changeNum(num+text);
+            changeNum(num + text);
           }
         } else {
           let res;
           if (op == '+') {
-            res = (parseFloat(prev)+parseFloat(num)).toString(10);
+            res = (parseFloat(prev) + parseFloat(num)).toString(10);
           }
 
           if (op == '−') {
-            res = (parseFloat(prev)-parseFloat(num)).toString(10);
+            res = (parseFloat(prev) - parseFloat(num)).toString(10);
           }
 
           if (op.includes('÷')) {
-            res = (Math.round((prev)/parseFloat(num)*1000)/1000).toString(10);
+            res = (Math.round((prev) / parseFloat(num) * 1000) / 1000).toString(10);
           }
 
           if (op == '×') {
-            res = (parseFloat(prev)*parseFloat(num)).toString(10);
+            res = (parseFloat(prev) * parseFloat(num)).toString(10);
           }
 
           if (op == '=') {
@@ -73,7 +73,7 @@ function App() {
       <div class={styles.panel}>
         {num}
       </div>
-      <div id="wrapper" on onClick={(e)=>operation(e)}>
+      <div id="wrapper" onClick={(e) => operation(e)}>
         <button class={styles.red}>C</button>
         <button class={styles.red}>&larr;</button>
         <button class={styles.red}> &divide;</button>
