@@ -29,7 +29,11 @@ function App() {
       } else {
         if (Number.isInteger(parseInt(text)) || text == '.') {
           if (num == '0' || op == '=') {
-            changeNum(text);
+            if (text == '.') {
+              changeNum(num + text);
+            } else {
+              changeNum(text);
+            }
             if (op == '=') {
               changeOp("==");
             }
@@ -39,23 +43,25 @@ function App() {
         } else {
           let res;
           if (op == '+') {
-            res = (parseFloat(prev) + parseFloat(num)).toString(10);
+            res = (parseFloat(prev) + parseFloat(num))
           }
 
           if (op == '−') {
-            res = (parseFloat(prev) - parseFloat(num)).toString(10);
+            res = (parseFloat(prev) - parseFloat(num))
           }
 
           if (op.includes('÷')) {
-            res = (Math.round((prev) / parseFloat(num) * 1000) / 1000).toString(10);
+            res = (prev) / parseFloat(num)
           }
 
           if (op == '×') {
-            res = (parseFloat(prev) * parseFloat(num)).toString(10);
+            res = parseFloat(prev) * parseFloat(num)
           }
 
           if (op.includes('=')) {
             res = num;
+          } else {
+            res = (Math.round(res*1000)/1000).toString(10);
           }
           if (text == '=') {
             changeNum(res);
