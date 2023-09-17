@@ -10,13 +10,14 @@ function App() {
   function operation(e) {
     let text = e.target.innerText;
     if (text === 'C') {
-      changeNum(0);
-      changePrev(0);
+      changeNum("0");
+      changePrev("0");
+      changeOp("+");
     } else {
       if (text === '←') {
         let str = num.toString(10);
         if (str.length === 1) {
-          changeNum(0);
+          changeNum("0");
         } else {
           if (str.length > 2 && str.charAt(str.length - 2) == '.') {
             changeNum(str.substring(0, str.length - 2));
@@ -29,6 +30,9 @@ function App() {
         if (Number.isInteger(parseInt(text)) || text == '.') {
           if (num == '0' || op == '=') {
             changeNum(text);
+            if (op == '=') {
+              changeOp("==");
+            }
           } else {
             changeNum(num + text);
           }
@@ -50,7 +54,7 @@ function App() {
             res = (parseFloat(prev) * parseFloat(num)).toString(10);
           }
 
-          if (op == '=') {
+          if (op.includes('=')) {
             res = num;
           }
           if (text == '=') {
