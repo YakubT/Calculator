@@ -30,7 +30,11 @@ function App() {
         if (Number.isInteger(parseInt(text)) || (text == '.')) {
           if (num == '0' || op == '=') {
             if (text == '.') {
+              if (op == '=') {
+                changeNum('0.');
+              } else {
               changeNum(num + text);
+              }
             } else {
               changeNum(text);
             }
